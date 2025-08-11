@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HackZone - Accueil & Connexion</title>
+  <link rel="stylesheet" href="cjsv.css">
+</head>
+<body>
+
+  <!-- En-tête -->
+  <header>
+    <div class="logo">HackZone</div>
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#form">Connexion</a>
+    </nav>
+  </header>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <span>Bienvenue sur HackZone — Connectez-vous via notre Wi-Fi local pour apprendre et échanger en toute sécurité!</span>
+  </div>
+
+  <!-- Accueil -->
+  <section id="accueil" class="hero">
+    <h1>Bienvenue sur HackZone</h1>
+    <p>
+      Bienvenue sur le point d'accès <strong>CJSV</strong>. Cette page est un assemblage de différentes données provenant des différents membres de CJSV.
+      <br>Nous espérons rendre notre page plus attractive prochainement.<br>
+      Merci <strong>Mr Emrys</strong>.
+    </p>
+  </section>
+
+  <!-- Connexion -->
+  <section id="form" class="form-section">
+    <h2>Connexion Wi-Fi</h2>
+    <form id="wifiForm">
+      <input type="text" id="name" placeholder="Votre nom (ex: Elise, Max...)" required />
+      <input type="text" id="ssid" placeholder="Nom du Réseau (SSID)" required />
+      <input type="text" id="ip" placeholder="Adresse IP" required />
+      <input type="password" id="password" placeholder="Mot de passe" required />
+      <button type="submit">Se connecter</button>
+    </form>
+    <div class="message" id="message"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 HackZone — Tous droits réservés.
+  </footer>
+
+  <script>
+    document.getElementById("wifiForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const ssid = document.getElementById("ssid").value.trim();
+      const ip = document.getElementById("ip").value.trim();
+      const password = document.getElementById("password").value;
+
+      const message = document.getElementById("message");
+
+      if (ssid === "HackZone" && ip === "192.168.1.1" && password === "00010001") {
+        message.style.color = "#0c9100";
+        message.textContent = `✅ Bonjour ${name}, vous êtes connecté au réseau "${ssid}" (${ip})`;
+      } else {
+        message.style.color = "#ff6666";
+        message.textContent = "❌ Identifiants incorrects. Vérifiez le nom du réseau, l'adresse IP ou le mot de passe.";
+      }
+    });
+  </script>
+
+</body>
+</html>
